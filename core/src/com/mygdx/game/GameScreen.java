@@ -16,16 +16,13 @@ public class GameScreen extends ScreenAdapter {
 	public SpriteBatch batch;
 	private Wheel wheel;
 	private World world;
+	private WorldRenderer worldRenderer;
 
 	public GameScreen(AirwheelGame airwheelGame) {
 		this.airwheelGame = airwheelGame;
-		//world = new World(airwheelGame);
-        wheelImg = new Texture("wheel.png");
-        backgroundImg = new Texture("background.png");
-        world = new World(airwheelGame);
+		world = new World(airwheelGame);
         wheel = world.getWheel();
-       // wheel = new Wheel(95,90);
-        batch = new SpriteBatch();
+        worldRenderer = new WorldRenderer(airwheelGame, world);
     }
 
 	@Override
@@ -33,11 +30,7 @@ public class GameScreen extends ScreenAdapter {
 		update(delta);
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		Vector2 pos = wheel.getPosition();
-		batch.draw(backgroundImg, 0, 0);
-		batch.draw(wheelImg, pos.x, pos.y);
-		batch.end();
+		worldRenderer.render(delta);
 	}
 	
 	 private void update(float delta) {
