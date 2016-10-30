@@ -15,12 +15,16 @@ public class GameScreen extends ScreenAdapter {
 	public Texture backgroundImg;
 	public SpriteBatch batch;
 	private Wheel wheel;
+	private World world;
 
 	public GameScreen(AirwheelGame airwheelGame) {
 		this.airwheelGame = airwheelGame;
+		//world = new World(airwheelGame);
         wheelImg = new Texture("wheel.png");
         backgroundImg = new Texture("background.png");
-        wheel = new Wheel(95,90);
+        world = new World(airwheelGame);
+        wheel = world.getWheel();
+       // wheel = new Wheel(95,90);
         batch = new SpriteBatch();
     }
 
