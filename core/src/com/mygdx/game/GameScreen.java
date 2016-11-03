@@ -15,6 +15,7 @@ public class GameScreen extends ScreenAdapter {
 	public Texture backgroundImg;
 	public SpriteBatch batch;
 	private Wheel wheel;
+	private Floor floor;
 	private World world;
 	private WorldRenderer worldRenderer;
 
@@ -22,6 +23,7 @@ public class GameScreen extends ScreenAdapter {
 		this.airwheelGame = airwheelGame;
 		world = new World(airwheelGame);
         wheel = world.getWheel();
+        floor = world.getFloor();
         worldRenderer = new WorldRenderer(airwheelGame, world);
     }
 
@@ -36,9 +38,11 @@ public class GameScreen extends ScreenAdapter {
 	 private void update(float delta) {
 	        if(Gdx.input.isKeyPressed(Keys.LEFT)) {
 	        	wheel.roll(Wheel.DIRECTION_LEFT);//หมุนซ้าย
+	        	floor.roll(Floor.DIRECTION_LEFT);
 	        }
 	        if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
 	        	wheel.roll(Wheel.DIRECTION_RIGHT);//หมุนขวา
+	        	floor.roll(Floor.DIRECTION_RIGHT);
 	        }
 	    }
 }

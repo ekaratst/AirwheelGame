@@ -2,25 +2,17 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Wheel {
-
-	//private Wheel wheel;
-	private Vector2 position;
+public class Floor {
 	private Vector2 rotation;
 	public static final int DIRECTION_LEFT = 1;
 	public static final int DIRECTION_RIGHT = 2;
 	int x = 0;
 	int y = 0;
 	 
-	public Wheel(int x, int y) {
-		position = new Vector2(x,y);
+	public Floor(int x, int y) {
 		rotation = new Vector2(x,y);
 	}    
 	 
-	public Vector2 getPosition() {
-		return position;    
-	}
-	
 	public Vector2 getRotation() {
 		return rotation;    
 	}
@@ -36,5 +28,6 @@ public class Wheel {
         	rotation.x += 2;
             break;
         }
-    }
+	}
+
 }
