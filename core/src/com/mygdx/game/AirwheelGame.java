@@ -12,7 +12,6 @@ public class AirwheelGame extends Game {
 	public static final int HEIGHT = 480;
     public static final int WIDTH = 638;
 
-	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();

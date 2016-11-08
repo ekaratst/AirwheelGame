@@ -3,12 +3,12 @@ package com.mygdx.game;
 import com.badlogic.gdx.math.Vector2;
 
 public class Wheel {
-
-	//private Wheel wheel;
 	private Vector2 position;
 	private Vector2 rotation;
 	public static final int DIRECTION_LEFT = 1;
 	public static final int DIRECTION_RIGHT = 2;
+	public static final int DIRECTION_UP = 3;
+	public static final int DIRECTION_DOWN = 4;
 	int x = 0;
 	int y = 0;
 	 
@@ -34,6 +34,17 @@ public class Wheel {
         case DIRECTION_LEFT:
             //position.x -= 10;
         	rotation.x += 2;
+            break;
+        }
+    }
+	
+	public void move(int dir) { 
+        switch(dir) {
+        case DIRECTION_UP:
+        	position.y += 1;
+            break;
+        case DIRECTION_DOWN:
+        	position.y -= 1;
             break;
         }
     }

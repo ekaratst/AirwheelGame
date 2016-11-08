@@ -14,14 +14,18 @@ public class Floor {
 	}    
 	 
 	public Vector2 getRotation() {
+		System.out.println("getRotation");
+		System.out.println("rotation.x: "+ rotation.x);
 		return rotation;    
 	}
 	
 	public void roll(int dir) { 
         switch(dir) {
         case DIRECTION_RIGHT:
+        	System.out.println("floor");
             //position.x += 10;
         	rotation.x -= 2;
+        	System.out.println("roll: "+rotation.x);
             break;
         case DIRECTION_LEFT:
             //position.x -= 10;

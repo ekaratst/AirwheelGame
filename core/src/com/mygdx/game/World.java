@@ -4,6 +4,7 @@ public class World {
 	 private Wheel wheel;
 	 private Floor floor;
 	 private AirwheelGame airwheelGame;
+	 
 	 World(AirwheelGame airwheelGame) {
 	        this.airwheelGame = airwheelGame;
 	        wheel = new Wheel(70,74);
@@ -11,10 +12,11 @@ public class World {
 	 }
 	 
 	 Wheel getWheel() {
-	        return wheel;
+		 return wheel;
 	 }
 	 
 	 Floor getFloor() {
-	        return floor;
+		 System.out.println("world");
+		 return floor;
 	 }
 }

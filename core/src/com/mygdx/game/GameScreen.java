@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 public class GameScreen extends ScreenAdapter {
-
 	private Texture wheelImg;
 	private AirwheelGame airwheelGame;
 	public Texture backgroundImg;
@@ -28,7 +27,8 @@ public class GameScreen extends ScreenAdapter {
     }
 
 	@Override
-	public void render (float delta) {
+	public void render(float delta) {
+		System.out.println("update");
 		update(delta);
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -36,13 +36,21 @@ public class GameScreen extends ScreenAdapter {
 	}
 	
 	 private void update(float delta) {
-	        if(Gdx.input.isKeyPressed(Keys.LEFT)) {
+	        if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 	        	wheel.roll(Wheel.DIRECTION_LEFT);//หมุนซ้าย
 	        	floor.roll(Floor.DIRECTION_LEFT);
 	        }
-	        if(Gdx.input.isKeyPressed(Keys.RIGHT)) {
+	        if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 	        	wheel.roll(Wheel.DIRECTION_RIGHT);//หมุนขวา
+	        	System.out.println("GameScreenWheel");
 	        	floor.roll(Floor.DIRECTION_RIGHT);
+	        	System.out.println("GameScreenFloor");
+	        }
+	        if (Gdx.input.isKeyPressed(Keys.UP)) {
+	        	wheel.move(Wheel.DIRECTION_UP);
+	        }
+	        if (Gdx.input.isKeyPressed(Keys.DOWN)) {
+	        	wheel.move(Wheel.DIRECTION_DOWN);
 	        }
 	    }
 }
