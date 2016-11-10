@@ -36,8 +36,6 @@ public class FloorRenderer {
 			i++;
 			batch.draw(upperFloorImg, 92*i+posFloor.x,0);
 		}
-		System.out.print("rolFloor.x: "+posFloor.x);
-		System.out.println(" rolFloor.y: "+posFloor.y);
 		batch.end();
 		 
 	 }

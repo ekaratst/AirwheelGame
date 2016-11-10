@@ -10,16 +10,19 @@ public class WheelRenderer {
 	public SpriteBatch batch;
 	private Floor floor;
 	private Texture wheelImg;
+	private Texture motorImg;
+	private Texture manImg;
 	private World world;
-	private AirwheelGame airwheelGame;
 	private Wheel wheel;
-	int n=1;
+	int n = 1;
 	
 	public WheelRenderer(SpriteBatch batch,Floor floor, World world) {
 		this.floor = floor;
     	this.batch = batch;
     	this.world = world;
     	wheelImg = new Texture("wheel.png");
+    	motorImg = new Texture("motor.png");
+    	manImg = new Texture("man.png");
     	wheel = world.getWheel();
 	}
 	
@@ -28,7 +31,8 @@ public class WheelRenderer {
         Vector2 rolWheel = world.getWheel().getRotation();
 		batch.begin();
 		batch.draw(wheelImg, 70, posWheel.y, wheelImg.getWidth()/2, wheelImg.getHeight()/2, wheelImg.getWidth(), wheelImg.getHeight(), 1, 1, rolWheel.x, 1, 1, wheelImg.getWidth(), wheelImg.getHeight(), false, false);
-		System.out.println("posWheel.x: "+posWheel.x);
+		batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, rolWheel.x, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);
+		batch.draw(motorImg, 64, posWheel.y+2);
 		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			if(posWheel.x >= 92*(5*n-3) && posWheel.x <= 92*(5*n-2)) {
 				posWheel.y--;
@@ -40,9 +44,6 @@ public class WheelRenderer {
 				n++;
 			}
 		}
-		System.out.println("n: "+n);
-		System.out.println("(n++)posWheel.x: "+posWheel.x +">="+(92*(5*n+2)-2));
-		System.out.println("---------");
 		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 			if(posWheel.x >= 92*(5*n-3) && posWheel.x <= 92*(5*n-2)) {
 				posWheel.y++;
@@ -54,7 +55,6 @@ public class WheelRenderer {
 				n--;
 			}
 		}
-		System.out.println("(n--)posWheel.x: "+posWheel.x +">="+(92*(5*n-3)));
 		batch.end();
 	}
 }
