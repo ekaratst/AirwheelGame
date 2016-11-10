@@ -7,7 +7,9 @@ import com.badlogic.gdx.math.Vector2;
 public class FloorRenderer {
 	public SpriteBatch batch;
 	private Floor floor;
-	private Texture floorImg;
+	private Texture upperFloorImg;
+	private Texture normalFloorImg;
+	private Texture lowerFloorImg;
 	private World world;
 	private AirwheelGame airwheelGame;
 	
@@ -15,15 +17,27 @@ public class FloorRenderer {
 		this.floor = floor;
     	this.batch = batch;
     	this.world = world;
-    	//this.world = new World(airwheelGame);
-    	floorImg = new Texture("floorimg.png");
+    	upperFloorImg = new Texture("upperFloor.png");
+    	normalFloorImg = new Texture("normalFloor.png");
+    	lowerFloorImg = new Texture("lowerFloor.png");
 	}
 	
 	public void render() {
-		Vector2 rolFloor = world.getFloor().getRotation();
+		Vector2 posFloor = world.getFloor().getPositionFloor();
 		batch.begin();
-		batch.draw(floorImg, rolFloor.x, 0);
-		System.out.println(rolFloor.x);
+		for (int i=0; i<1000; i++) {
+			batch.draw(normalFloorImg, 92*i+posFloor.x, 0);
+			i++;
+			batch.draw(normalFloorImg, 92*i+posFloor.x, 0);
+			i++;
+			batch.draw(lowerFloorImg, 92*i+posFloor.x,0);
+			i++;
+			batch.draw(normalFloorImg, 92*i+posFloor.x,-40);
+			i++;
+			batch.draw(upperFloorImg, 92*i+posFloor.x,0);
+		}
+		System.out.print("rolFloor.x: "+posFloor.x);
+		System.out.println(" rolFloor.y: "+posFloor.y);
 		batch.end();
 		 
 	 }

@@ -28,11 +28,11 @@ public class Wheel {
 	public void roll(int dir) { 
         switch(dir) {
         case DIRECTION_RIGHT:
-            //position.x += 10;
+            position.x += 2;
         	rotation.x -= 2;
             break;
         case DIRECTION_LEFT:
-            //position.x -= 10;
+            position.x -= 2;
         	rotation.x += 2;
             break;
         }
