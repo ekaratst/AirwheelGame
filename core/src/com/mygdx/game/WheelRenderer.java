@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -27,17 +29,32 @@ public class WheelRenderer {
 		batch.begin();
 		batch.draw(wheelImg, 70, posWheel.y, wheelImg.getWidth()/2, wheelImg.getHeight()/2, wheelImg.getWidth(), wheelImg.getHeight(), 1, 1, rolWheel.x, 1, 1, wheelImg.getWidth(), wheelImg.getHeight(), false, false);
 		System.out.println("posWheel.x: "+posWheel.x);
-		System.out.println("n: "+n);
-		if (posWheel.x>=92*(5*n-3) && posWheel.x<=92*(5*(n+1)-3)) {
-			//for(int i=1;i<=40;i++)
-			//{
-			posWheel.y -=5;
-			//}
-			n++;
+		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
+			if(posWheel.x >= 92*(5*n-3) && posWheel.x <= 92*(5*n-2)) {
+				posWheel.y--;
+			}
+			else if(posWheel.x >= 92*(5*n-1) && posWheel.x <= 92*(5*n)) {
+				posWheel.y++;
+			}
+			if(posWheel.x >= 92*(5*n+2)-2) {
+				n++;
+			}
 		}
-		System.out.println("posWheel.y: "+posWheel.y);
+		System.out.println("n: "+n);
+		System.out.println("(n++)posWheel.x: "+posWheel.x +">="+(92*(5*n+2)-2));
+		System.out.println("---------");
+		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+			if(posWheel.x >= 92*(5*n-3) && posWheel.x <= 92*(5*n-2)) {
+				posWheel.y++;
+			}
+			else if(posWheel.x >= 92*(5*n-1) && posWheel.x <= 92*(5*n)) {
+				posWheel.y--;
+			}
+			if(posWheel.x <= 92*(5*n-3)) {
+				n--;
+			}
+		}
+		System.out.println("(n--)posWheel.x: "+posWheel.x +">="+(92*(5*n-3)));
 		batch.end();
-		 
 	}
-
 }

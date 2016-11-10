@@ -44,11 +44,11 @@ public class GameScreen extends ScreenAdapter {
 	        	floor.move(Floor.DIRECTION_RIGHT);
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.UP)) {
-	        	wheel.move(Wheel.DIRECTION_UP);
+	        	//wheel.move(Wheel.DIRECTION_UP);
 	        	floor.move(Floor.DIRECTION_UP);
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-	        	wheel.move(Wheel.DIRECTION_DOWN);
+	        	//wheel.move(Wheel.DIRECTION_DOWN);
 	        	floor.move(Floor.DIRECTION_DOWN);
 	        }
 	    }
