@@ -9,8 +9,6 @@ public class Wheel {
 	public static final int DIRECTION_RIGHT = 2;
 	public static final int DIRECTION_UP = 3;
 	public static final int DIRECTION_DOWN = 4;
-	int x = 0;
-	int y = 0;
 	 
 	public Wheel(int x, int y) {
 		position = new Vector2(x,y);
@@ -26,7 +24,7 @@ public class Wheel {
 	}
 	
 	public void roll(int dir) { 
-        switch(dir) {
+        switch (dir) {
         case DIRECTION_RIGHT:
             position.x += 2;
         	rotation.x -= 2;
@@ -39,7 +37,7 @@ public class Wheel {
     }
 	
 	public void move(int dir) { 
-        switch(dir) {
+        switch (dir) {
         case DIRECTION_UP:
         	position.y += 1;
             break;

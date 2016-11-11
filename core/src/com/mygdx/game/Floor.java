@@ -8,8 +8,6 @@ public class Floor {
 	public static final int DIRECTION_RIGHT = 2;
 	public static final int DIRECTION_UP = 3;
 	public static final int DIRECTION_DOWN = 4;
-	int x = 0;
-	int y = 0;
 	 
 	public Floor(int x, int y) {
 		positionFloor = new Vector2(x,y);
@@ -22,11 +20,9 @@ public class Floor {
 	public void move(int dir) { 
         switch(dir) {
         case DIRECTION_RIGHT:
-            //position.x += 10;
         	positionFloor.x -= 2;
             break;
         case DIRECTION_LEFT:
-            //position.x -= 10;
         	positionFloor.x += 2;
             break;
         case DIRECTION_UP:

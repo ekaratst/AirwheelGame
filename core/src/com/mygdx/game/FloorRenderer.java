@@ -25,18 +25,17 @@ public class FloorRenderer {
 	public void render() {
 		Vector2 posFloor = world.getFloor().getPositionFloor();
 		batch.begin();
-		for (int i=0; i<1000; i++) {
-			batch.draw(normalFloorImg, 92*i+posFloor.x, 0);
-			i++;
-			batch.draw(normalFloorImg, 92*i+posFloor.x, 0);
-			i++;
-			batch.draw(lowerFloorImg, 92*i+posFloor.x,0);
-			i++;
-			batch.draw(normalFloorImg, 92*i+posFloor.x,-40);
-			i++;
-			batch.draw(upperFloorImg, 92*i+posFloor.x,0);
+		for (int numberOfFloor = 0; numberOfFloor < 1000; numberOfFloor++) {
+			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, 0);
+			numberOfFloor++;
+			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, 0);
+			numberOfFloor++;
+			batch.draw(lowerFloorImg, 92*numberOfFloor + posFloor.x, 0);
+			numberOfFloor++;
+			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, -40);
+			numberOfFloor++;
+			batch.draw(upperFloorImg, 92*numberOfFloor + posFloor.x, 0);
 		}
 		batch.end();
-		 
 	 }
 }
