@@ -14,6 +14,9 @@ public class WheelRenderer {
 	private Texture manImg;
 	private World world;
 	int numberCheckPartOfFloorPosition = 1;
+	float a = 1;
+	int velocityOfMan = -16;
+	public int velocityOfWheel = 1;
 	
 	public WheelRenderer(SpriteBatch batch,Floor floor, World world) {
 		this.floor = floor;
@@ -61,8 +64,9 @@ public class WheelRenderer {
 	
 	public void drawManAndMotor() {
 		Vector2 posWheel = world.getWheel().getPosition();
-		batch.draw(manImg, 73, posWheel.y+15);
-		//batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, rolWheel.x, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);
+		Vector2 rolWheel = world.getWheel().getRotation();
+		//batch.draw(manImg, 73, posWheel.y+15);
+		batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, velocityOfMan*a, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);
 		batch.draw(motorImg, 64, posWheel.y+2);
 	}
 	
@@ -70,6 +74,29 @@ public class WheelRenderer {
 		Vector2 posWheel = world.getWheel().getPosition();
 		Vector2 rolWheel = world.getWheel().getRotation();
 		batch.draw(wheelImg, 70, posWheel.y, wheelImg.getWidth()/2, wheelImg.getHeight()/2, wheelImg.getWidth(), wheelImg.getHeight(), 1, 1, rolWheel.x, 1, 1, wheelImg.getWidth(), wheelImg.getHeight(), false, false);
+		velocityOfMan--;
+		if (Gdx.input.isKeyPressed(Keys.RIGHT))
+		{
+			a +=0.2;
+			velocityOfMan += 2;
+			if (velocityOfMan > 0)
+			{
+				velocityOfMan += 2;
+				a +=0.3;
+				if (Gdx.input.isKeyPressed(Keys.RIGHT))
+				{
+					a +=0.2;
+					velocityOfMan += 2;
+				}
+			}
+		}
+		else
+		{
+			a = 1;
+		}
+	System.out.println("a: "+ a);
+	System.out.println("velocityOfMan: "+ velocityOfMan);
+	System.out.println("rolWheel.x: "+ rolWheel.x);
 	}
 	
 }
