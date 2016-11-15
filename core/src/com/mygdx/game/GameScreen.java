@@ -37,19 +37,25 @@ public class GameScreen extends ScreenAdapter {
 	 private void update(float delta) {
 	        if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 	        	wheel.roll(Wheel.DIRECTION_LEFT);//หมุนซ้าย
+	        	//wheel.moveCheck(Wheel.DIRECTION_LEFT);
 	        	floor.move(Floor.DIRECTION_LEFT);
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 	        	wheel.roll(Wheel.DIRECTION_RIGHT);//หมุนขวา
+	        	//wheel.moveCheck(Wheel.DIRECTION_RIGHT);
 	        	floor.move(Floor.DIRECTION_RIGHT);
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.UP)) {
 	        	//wheel.move(Wheel.DIRECTION_UP);
+	        	//wheel.moveCheck(Wheel.DIRECTION_UP);
 	        	floor.move(Floor.DIRECTION_UP);
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.DOWN)) {
 	        	//wheel.move(Wheel.DIRECTION_DOWN);
+	        	//wheel.moveCheck(Wheel.DIRECTION_DOWN);
 	        	floor.move(Floor.DIRECTION_DOWN);
 	        }
+	        floor.updatefloor();
+		 	wheel.updatefloor();
 	    }
 }

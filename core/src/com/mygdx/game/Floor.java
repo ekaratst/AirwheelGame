@@ -33,5 +33,8 @@ public class Floor {
             break;
         }
 	}
-
+	
+	public void updatefloor() {
+		positionFloor.x -= 1;
+	}
 }
