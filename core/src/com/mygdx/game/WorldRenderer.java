@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,6 +17,8 @@ public class WorldRenderer {
 	private Floor floor;
 	public float posMM=0;
 	private BitmapFont font;
+	private Texture startImg;
+	boolean start = false;
 
 	public WorldRenderer(AirwheelGame airwheelGame, World world) {
 		this.airwheelGame = airwheelGame;
@@ -24,21 +28,26 @@ public class WorldRenderer {
 	    this.wheelRenderer = new WheelRenderer(batch, floor, world);
 	    backgroundImg = new Texture("background.png");
 	    font = new BitmapFont();
+	    startImg = new Texture("startall.png"); 
 	}
 	
-	public void render(float delta) {
-		
-		
-		batch.begin();
-		batch.draw(backgroundImg, 0, 0);
-		batch.end();
-		floorRenderer.render();
-		wheelRenderer.render();
-		batch.begin();
-
-		font.draw(batch, "" + world.getScore(), 50, 450);
-		batch.end();
-		
+	public void render(float delta) {		
+			batch.begin();
+			batch.draw(backgroundImg, 0, 0);
+			if (!start) {
+				batch.draw(startImg, 0, 0);
+			}
+			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
+				start = true;
+			}
+			batch.end();
+			if (start) {
+			floorRenderer.render();
+			wheelRenderer.render();
+			batch.begin();
+			font.draw(batch, "" + world.getScore(), 50, 450);
+			batch.end();
+		}
     }
 	
 	public float getPosManFromWheelRenderer(){

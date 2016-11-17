@@ -29,7 +29,6 @@ public class World {
 			 bananas.remove(0);
 			 increaseScore();
 		 }
-		 
 	 }
 	 
 	 Wheel getWheel() {
@@ -45,10 +44,10 @@ public class World {
 	 }
 	 
 	 public int getScore() {
-	        return score;
+		 return score;
 	 }
 	 
 	 public void increaseScore() {
-	        score += 1;
+		 score += 1;
 	 }
 }
