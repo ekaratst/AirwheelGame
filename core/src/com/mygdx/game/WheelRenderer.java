@@ -43,19 +43,20 @@ public class WheelRenderer {
 		//System.out.println("posWheel.x: "+ posWheel.x+ "< "+ 92*(5*numberCheckPartOfFloorPosition-3));
 		//if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-3) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition-2)) {
-				posWheel.y--;
+				posWheel.y -=2;
 			} else if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-1) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition)) {
-				posWheel.y++;
+				posWheel.y +=2;
 			}
 			if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition+2)-2) {
 				numberCheckPartOfFloorPosition++;
 			}
-			System.out.println("posWheel.x: "+ posWheel.x+ "< "+ 92*(5*numberCheckPartOfFloorPosition-3));
+			System.out.println("numberCheckPartOfFloorPosition: "+numberCheckPartOfFloorPosition);
+			System.out.println("posWheel.x: "+ posWheel.x+ "< "+ (92*(5*numberCheckPartOfFloorPosition-3)));
 		//}
 	}
 	public void whenIsPressedLeft() {
 		Vector2 posWheel = world.getWheel().getPosition();
-		//if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 			if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-3) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition-2)) {
 				posWheel.y++;
 			} else if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-1) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition)) {
@@ -64,7 +65,7 @@ public class WheelRenderer {
 			if (posWheel.x <= 92*(5*numberCheckPartOfFloorPosition-3)) {
 				numberCheckPartOfFloorPosition--;
 			}
-		//}
+		}
 	}
 	
 	public void drawManAndMotor() {

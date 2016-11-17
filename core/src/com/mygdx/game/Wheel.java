@@ -54,7 +54,8 @@ public class Wheel {
     }
 	
 	public void updatefloor() {
-		rotation.x -= 2;
+		rotation.x -= 1;
+		position.x += 1;
 	}
 	/*
 	public void moveCheck(int dir) { 

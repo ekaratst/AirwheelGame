@@ -27,6 +27,7 @@ public class FloorRenderer {
 		batch.begin();
 		for (int numberOfFloor = 0; numberOfFloor < 1000; numberOfFloor++) {
 			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, 0);
+			/*
 			numberOfFloor++;
 			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, 0);
 			numberOfFloor++;
@@ -35,6 +36,7 @@ public class FloorRenderer {
 			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, -40);
 			numberOfFloor++;
 			batch.draw(upperFloorImg, 92*numberOfFloor + posFloor.x, 0);
+			*/
 		}
 		batch.end();
 	 }
