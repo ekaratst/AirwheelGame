@@ -64,7 +64,15 @@ public class GameScreen extends ScreenAdapter {
 	        if (Gdx.input.isKeyPressed(Keys.SPACE)) {
 	        	floor.boost();
 	        }
+	        updateBananaPosition();
 	        floor.updatefloor();
 		 	wheel.updatefloor();
-	    }
+		 	world.collectBanana();
+	 }
+	 public void updateBananaPosition() {
+		 for (Banana banana : this.world.bananas) {
+			 banana.position.x = banana.position.z + world.getFloor().getPositionFloor().x;
+		 }
+	 }
+	 
 }

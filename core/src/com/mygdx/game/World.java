@@ -10,6 +10,7 @@ public class World {
 	 private WheelRenderer wheelRenderer;
 	 List <Banana> bananas = new ArrayList<Banana> ();
 	 int count = 0;
+	 private int score;
 	 
 	 World(AirwheelGame airwheelGame) {
 	        this.airwheelGame = airwheelGame;
@@ -20,6 +21,15 @@ public class World {
 	        	bananas.add(banana);
 	        	count = banana.getCount();
 	        }
+	        score = 0;
+	 }
+	 
+	 public void collectBanana() {
+		 if ((!bananas.isEmpty()) && (bananas.get(0).position.x < 70)) {
+			 bananas.remove(0);
+			 increaseScore();
+		 }
+		 
 	 }
 	 
 	 Wheel getWheel() {
@@ -32,5 +42,13 @@ public class World {
 	 
 	 WheelRenderer getWheelRenderer() {
 		 return wheelRenderer;
+	 }
+	 
+	 public int getScore() {
+	        return score;
+	 }
+	 
+	 public void increaseScore() {
+	        score += 1;
 	 }
 }
