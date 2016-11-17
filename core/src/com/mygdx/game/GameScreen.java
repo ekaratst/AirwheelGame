@@ -27,14 +27,10 @@ public class GameScreen extends ScreenAdapter {
         wheel = world.getWheel();
         floor = world.getFloor();
         worldRenderer = new WorldRenderer(airwheelGame, world);
-        //wheelRenderer = new WheelRenderer(batch, floor, world);
-        //posMan = wheelRenderer.getPosMan();
     }
 
 	@Override
 	public void render(float delta) {
-		//checkPosMan = wheelRenderer.getPosMan();
-		//System.out.println(checkPosMan);
 		if (bool) {
 			Gdx.gl.glClearColor(0, 0, 0, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

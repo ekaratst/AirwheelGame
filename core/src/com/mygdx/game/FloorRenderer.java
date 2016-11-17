@@ -10,6 +10,7 @@ public class FloorRenderer {
 	private Texture upperFloorImg;
 	private Texture normalFloorImg;
 	private Texture lowerFloorImg;
+	private Texture bananaImg;
 	private World world;
 	private AirwheelGame airwheelGame;
 	
@@ -20,6 +21,7 @@ public class FloorRenderer {
     	upperFloorImg = new Texture("upperFloor.png");
     	normalFloorImg = new Texture("normalFloor.png");
     	lowerFloorImg = new Texture("lowerFloor.png");
+    	bananaImg = new Texture("banana.png");
 	}
 	
 	public void render() {
@@ -27,6 +29,9 @@ public class FloorRenderer {
 		batch.begin();
 		for (int numberOfFloor = 0; numberOfFloor < 1000; numberOfFloor++) {
 			batch.draw(normalFloorImg, 92*numberOfFloor + posFloor.x, 0);
+			if (numberOfFloor % 3 ==0) {
+				batch.draw(bananaImg, 95*numberOfFloor + posFloor.x, 165);
+			}
 		}
 		batch.end();
 	 }

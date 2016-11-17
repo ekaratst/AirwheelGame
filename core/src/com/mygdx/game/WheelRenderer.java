@@ -17,7 +17,6 @@ public class WheelRenderer {
 	float a = 1;
 	float velocityOfMan = -16;
 	public int velocityOfWheel = 1;
-	//public Texture checkImg;
 	public float posMan = -10;
 	
 	public WheelRenderer(SpriteBatch batch,Floor floor, World world) {
@@ -27,7 +26,6 @@ public class WheelRenderer {
     	wheelImg = new Texture("wheel.png");
     	motorImg = new Texture("motor.png");
     	manImg = new Texture("man.png");
-    	//checkImg = new Texture("check.png");
 	}
 	
 	public void render() {
@@ -43,45 +41,25 @@ public class WheelRenderer {
 		batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, velocityOfMan, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);
 		normalStateOfMan();
 		isPressed();
-		/*
-		posMan -= 2 ;
-		if (posMan >= 0) {
-			if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-				posMan += 3;
-			} else {
-				posMan--;
-			}
-		}
-		else if (posMan < 0) {
-			if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-				posMan--;
-			} else {
-				posMan++;
-			}
-		}
-		*/
 		updateVelocityOfMan();
-		System.out.println("rolWheel.y: "+ rolWheel.y);
+		//System.out.println("rolWheel.y: "+ rolWheel.y);
 		batch.draw(motorImg, 64, posWheel.y+2);
 	}
 	
 	public void drawWheel() {
 		Vector2 posWheel = world.getWheel().getPosition();
-		//Vector2 posCheck = world.getWheel().getPoscheck();
 		Vector2 rolWheel = world.getWheel().getRotation();
-		batch.draw(wheelImg, 70, posWheel.y, wheelImg.getWidth()/2, wheelImg.getHeight()/2, wheelImg.getWidth(), wheelImg.getHeight(), 1, 1, rolWheel.x, 1, 1, wheelImg.getWidth(), wheelImg.getHeight(), false, false);
-		//batch.draw(checkImg, posCheck.x, posCheck.y);
-		//System.out.println("posCheck.x: "+ posCheck.x+"|| posCheck.y: "+posCheck.y);
+		batch.draw(wheelImg, 70, posWheel.y, wheelImg.getWidth()/2, wheelImg.getHeight()/2, wheelImg.getWidth(), wheelImg.getHeight(), 1, 1, rolWheel.x, 1, 1, wheelImg.getWidth(), wheelImg.getHeight(), false, false);	
 	}
 	
 	public void updateVelocityOfMan() {
-		System.out.println("posMan: "+ posMan);
+		//System.out.println("posMan: "+ posMan);
 		if (posMan < 0) {
 			velocityOfMan = -1 * (float) ((Math.sqrt(2*98*Math.abs(posMan))));;
 		} else {
 			velocityOfMan = (float) ((Math.sqrt(2*98*Math.abs(posMan))));
 		}
-		System.out.println("velocityOfMan: "+ velocityOfMan);
+		//System.out.println("velocityOfMan: "+ velocityOfMan);
 	}
 	
 	public void normalStateOfMan() {

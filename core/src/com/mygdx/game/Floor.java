@@ -23,7 +23,7 @@ public class Floor {
         	positionFloor.x -= 2;
             break;
         case DIRECTION_LEFT:
-        	positionFloor.x += 2;
+        	positionFloor.x += 3;
             break;
         case DIRECTION_UP:
         	positionFloor.y += 1;
@@ -36,9 +36,5 @@ public class Floor {
 	
 	public void updatefloor() {
 		positionFloor.x -= 1;
-	}
-	
-	public void notUpdatefloor() {
-		positionFloor.x -= 0;
 	}
 }
