@@ -32,8 +32,8 @@ public class World {
 		 if ((!bananas.isEmpty()) && (bananas.get(0).position.x < 70)) {
 			 bananas.remove(0);
 			 increaseScore();
-			 Sound sound = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
-			 sound.play(1.0f);
+			 Sound soundCollect = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
+			 soundCollect.play(1.0f);
 		 }
 	 }
 	 

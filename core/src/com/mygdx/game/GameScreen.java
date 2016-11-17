@@ -23,9 +23,12 @@ public class GameScreen extends ScreenAdapter {
 	private float checkPosMan = 0;
 	private Texture playagainImg;
 	private boolean checkSound = true;
+	private Sound soundBackgroud = Gdx.audio.newSound(Gdx.files.internal("sounds/background.mp3"));
+	private Sound soundCrash = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
+		soundBackgroud.loop();
 		this.airwheelGame = airwheelGame;
 		world = new World(airwheelGame);
         wheel = world.getWheel();
@@ -33,6 +36,7 @@ public class GameScreen extends ScreenAdapter {
         batch = airwheelGame.batch;
         worldRenderer = new WorldRenderer(airwheelGame, world);
         playagainImg = new Texture ("playagain.png");
+        
     }
 
 	@Override
@@ -47,8 +51,7 @@ public class GameScreen extends ScreenAdapter {
 		if (checkPosMan <= -60 || checkPosMan >= 60) {
 			bool=false;
 			if (checkSound) {
-				Sound sound2 = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
-				sound2.play(1.0f);
+				soundCrash.play(1.0f);
 				checkSound = false;
 			}
 			batch.begin();
