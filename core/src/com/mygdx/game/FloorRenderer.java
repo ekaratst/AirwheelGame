@@ -44,7 +44,7 @@ public class FloorRenderer {
 	public void bananaRenderer (Vector2 posFloor) {
 		for (Banana banana : this.bananas) {
 //			banana.position.x += posFloor.x;
-			batch.draw(bananaImg, banana.position.x, 165);
+			batch.draw(bananaImg, banana.position.x, 195);
 		}
 	}
 }

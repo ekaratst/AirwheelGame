@@ -18,6 +18,7 @@ public class WorldRenderer {
 	public float posMM=0;
 	private BitmapFont font;
 	private Texture startImg;
+	private Texture airwheelImg;
 	boolean start = false;
 
 	public WorldRenderer(AirwheelGame airwheelGame, World world) {
@@ -29,6 +30,7 @@ public class WorldRenderer {
 	    backgroundImg = new Texture("background.png");
 	    font = new BitmapFont();
 	    startImg = new Texture("startall.png"); 
+	    airwheelImg = new Texture("airwheel.png"); 
 	}
 	
 	public void render(float delta) {		
@@ -36,6 +38,7 @@ public class WorldRenderer {
 			batch.draw(backgroundImg, 0, 0);
 			if (!start) {
 				batch.draw(startImg, 0, 0);
+				batch.draw(airwheelImg, 250, 340);
 			}
 			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
 				start = true;
