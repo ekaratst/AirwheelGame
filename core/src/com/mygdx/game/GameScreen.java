@@ -41,6 +41,10 @@ public class GameScreen extends ScreenAdapter {
 		} 
 		if (checkPosMan <= -60 || checkPosMan >= 60) {
 			bool=false;
+			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
+				bool = true;
+				worldRenderer.wheelRenderer.posMan = -10;
+			}
 		}
 	}
 	
@@ -74,5 +78,4 @@ public class GameScreen extends ScreenAdapter {
 			 banana.position.x = banana.position.z + world.getFloor().getPositionFloor().x;
 		 }
 	 }
-	 
 }

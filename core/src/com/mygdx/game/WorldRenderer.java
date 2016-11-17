@@ -13,7 +13,7 @@ public class WorldRenderer {
 	private World world;
 	public Texture backgroundImg;
 	private FloorRenderer floorRenderer;
-	private WheelRenderer wheelRenderer;
+	public WheelRenderer wheelRenderer;
 	private Floor floor;
 	public float posMM=0;
 	private BitmapFont font;
@@ -45,7 +45,8 @@ public class WorldRenderer {
 			floorRenderer.render();
 			wheelRenderer.render();
 			batch.begin();
-			font.draw(batch, "" + world.getScore(), 50, 450);
+			font.draw(batch, "score: " + world.getScore(), 30, 450);
+			font.draw(batch, "hightscore: " + world.getHightScore(), 30, 430);
 			batch.end();
 		}
     }

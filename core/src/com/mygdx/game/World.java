@@ -11,6 +11,7 @@ public class World {
 	 List <Banana> bananas = new ArrayList<Banana> ();
 	 int count = 0;
 	 private int score;
+	 private int hightscore = 0;
 	 
 	 World(AirwheelGame airwheelGame) {
 	        this.airwheelGame = airwheelGame;
@@ -49,5 +50,12 @@ public class World {
 	 
 	 public void increaseScore() {
 		 score += 1;
+	 }
+	 
+	 public int getHightScore() {
+		 if (score > hightscore) {
+			 hightscore = score;
+		 } 
+		 return hightscore;
 	 }
 }
