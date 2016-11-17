@@ -37,4 +37,8 @@ public class Floor {
 	public void updatefloor() {
 		positionFloor.x -= 1;
 	}
+	
+	public void notUpdatefloor() {
+		positionFloor.x -= 0;
+	}
 }

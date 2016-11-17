@@ -4,6 +4,7 @@ public class World {
 	 private Wheel wheel;
 	 private Floor floor;
 	 private AirwheelGame airwheelGame;
+	 private WheelRenderer wheelRenderer;
 	 
 	 World(AirwheelGame airwheelGame) {
 	        this.airwheelGame = airwheelGame;
@@ -17,5 +18,9 @@ public class World {
 	 
 	 Floor getFloor() {
 		 return floor;
+	 }
+	 
+	 WheelRenderer getWheelRenderer() {
+		 return wheelRenderer;
 	 }
 }

@@ -18,7 +18,7 @@ public class WheelRenderer {
 	float velocityOfMan = -16;
 	public int velocityOfWheel = 1;
 	//public Texture checkImg;
-	float posMan = -5;
+	public float posMan = -10;
 	
 	public WheelRenderer(SpriteBatch batch,Floor floor, World world) {
 		this.floor = floor;
@@ -34,51 +34,31 @@ public class WheelRenderer {
 		batch.begin();
 		drawWheel();
 		drawManAndMotor();
-		//whenIsPressedRight();
-		//whenIsPressedLeft();
 		batch.end();
 	}
-	/*
-	public void whenIsPressedRight() {
-		Vector2 posWheel = world.getWheel().getPosition();
-		//System.out.println("posWheel.x: "+ posWheel.x+ "< "+ 92*(5*numberCheckPartOfFloorPosition-3));
-		//if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-			if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-3) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition-2)) {
-				posWheel.y -=2;
-			} else if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-1) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition)) {
-				posWheel.y +=2;
-			}
-			if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition+2)-2) {
-				numberCheckPartOfFloorPosition++;
-			}
-			System.out.println("numberCheckPartOfFloorPosition: "+numberCheckPartOfFloorPosition);
-			System.out.println("posWheel.x: "+ posWheel.x+ "< "+ (92*(5*numberCheckPartOfFloorPosition-3)));
-		//}
-	}
-	public void whenIsPressedLeft() {
-		Vector2 posWheel = world.getWheel().getPosition();
-		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-			if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-3) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition-2)) {
-				posWheel.y++;
-			} else if (posWheel.x >= 92*(5*numberCheckPartOfFloorPosition-1) && posWheel.x <= 92*(5*numberCheckPartOfFloorPosition)) {
-				posWheel.y--;
-			}
-			if (posWheel.x <= 92*(5*numberCheckPartOfFloorPosition-3)) {
-				numberCheckPartOfFloorPosition--;
-			}
-		}
-	}
-	*/
+	
 	public void drawManAndMotor() {
 		Vector2 posWheel = world.getWheel().getPosition();
 		Vector2 rolWheel = world.getWheel().getRotation();
-		//batch.draw(manImg, 73, posWheel.y+15);
-		batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, velocityOfMan, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);		
-		if (Gdx.input.isKeyPressed(Keys.RIGHT))
-			posMan++;
-		else {
-			posMan--;
+		batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, velocityOfMan, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);
+		normalStateOfMan();
+		/*
+		posMan -= 2 ;
+		if (posMan >= 0) {
+			if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
+				posMan += 3;
+			} else {
+				posMan--;
+			}
 		}
+		else if (posMan < 0) {
+			if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+				posMan--;
+			} else {
+				posMan++;
+			}
+		}
+		*/
 		updateVelocityOfMan();
 		System.out.println("rolWheel.y: "+ rolWheel.y);
 		batch.draw(motorImg, 64, posWheel.y+2);
@@ -101,5 +81,24 @@ public class WheelRenderer {
 			velocityOfMan = (float) ((Math.sqrt(2*98*Math.abs(posMan))));
 		}
 		System.out.println("velocityOfMan: "+ velocityOfMan);
+	}
+	
+	public void normalStateOfMan() {
+		if (posMan <= 0) {
+			posMan -= 1 ;
+		}
+		else {
+			posMan += 1 ;
+		}
+	}
+	/*
+	public void endGame() {
+		if (posMan <= -75) {
+			
+		}
+	}
+	*/
+	public float getPosMan() {
+		return posMan;
 	}
 }
