@@ -25,6 +25,7 @@ public class GameScreen extends ScreenAdapter {
 	private boolean checkSound = true;
 	private Sound soundBackgroud = Gdx.audio.newSound(Gdx.files.internal("sounds/background.mp3"));
 	private Sound soundCrash = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
+	private Sound soundBoost = Gdx.audio.newSound(Gdx.files.internal("sounds/boost.mp3"));
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
@@ -84,6 +85,7 @@ public class GameScreen extends ScreenAdapter {
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.SPACE)) {
 	        	floor.boost();
+	        	soundBoost.play(1.0f);
 	        }
 	        updateBananaPosition();
 	        floor.updatefloor();
