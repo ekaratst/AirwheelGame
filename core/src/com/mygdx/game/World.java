@@ -3,6 +3,9 @@ package com.mygdx.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+
 public class World {
 	 private Wheel wheel;
 	 private Floor floor;
@@ -29,6 +32,8 @@ public class World {
 		 if ((!bananas.isEmpty()) && (bananas.get(0).position.x < 70)) {
 			 bananas.remove(0);
 			 increaseScore();
+			 Sound sound = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
+			 sound.play(1.0f);
 		 }
 	 }
 	 

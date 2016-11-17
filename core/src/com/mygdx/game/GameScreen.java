@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -44,6 +45,8 @@ public class GameScreen extends ScreenAdapter {
 		} 
 		if (checkPosMan <= -60 || checkPosMan >= 60) {
 			bool=false;
+			Sound sound2 = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
+			sound2.play(1.0f);
 			batch.begin();
 			batch.draw(playagainImg, 185, 220);
 			batch.end();
