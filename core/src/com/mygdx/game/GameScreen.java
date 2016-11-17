@@ -42,7 +42,7 @@ public class GameScreen extends ScreenAdapter {
 			checkPosMan = worldRenderer.getPosManFromWheelRenderer();
 			update(delta);
 		} 
-		if (checkPosMan <= -60) {
+		if (checkPosMan <= -60 || checkPosMan >= 60) {
 			bool=false;
 		}
 	}

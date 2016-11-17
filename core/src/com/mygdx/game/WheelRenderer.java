@@ -42,6 +42,7 @@ public class WheelRenderer {
 		Vector2 rolWheel = world.getWheel().getRotation();
 		batch.draw(manImg, 73, posWheel.y+15, manImg.getWidth()/2, 10, manImg.getWidth(), manImg.getHeight(), 1, 1, velocityOfMan, 1, 1, manImg.getWidth(), manImg.getHeight(), false, false);
 		normalStateOfMan();
+		isPressed();
 		/*
 		posMan -= 2 ;
 		if (posMan >= 0) {
@@ -94,5 +95,13 @@ public class WheelRenderer {
 
 	public float getPosMan() {
 		return posMan;
+	}
+	
+	public void isPressed() {
+		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
+			posMan += 2;
+		} else if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+			posMan -= 2;
+		}
 	}
 }
