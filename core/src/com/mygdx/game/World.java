@@ -58,4 +58,8 @@ public class World {
 		 } 
 		 return hightscore;
 	 }
+	 
+	 public int resetScore() {
+		 return score=0;
+	 }
 }

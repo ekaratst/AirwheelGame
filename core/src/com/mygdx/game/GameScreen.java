@@ -20,6 +20,7 @@ public class GameScreen extends ScreenAdapter {
 	private WorldRenderer worldRenderer;
 	private boolean bool = true;
 	private float checkPosMan = 0;
+	private Texture playagainImg;
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
@@ -27,7 +28,9 @@ public class GameScreen extends ScreenAdapter {
 		world = new World(airwheelGame);
         wheel = world.getWheel();
         floor = world.getFloor();
+        batch = airwheelGame.batch;
         worldRenderer = new WorldRenderer(airwheelGame, world);
+        playagainImg = new Texture ("playagain.png");
     }
 
 	@Override
@@ -41,9 +44,13 @@ public class GameScreen extends ScreenAdapter {
 		} 
 		if (checkPosMan <= -60 || checkPosMan >= 60) {
 			bool=false;
+			batch.begin();
+			batch.draw(playagainImg, 185, 220);
+			batch.end();
 			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
 				bool = true;
 				worldRenderer.wheelRenderer.posMan = -10;
+				world.resetScore();
 			}
 		}
 	}
