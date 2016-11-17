@@ -12,6 +12,8 @@ public class WorldRenderer {
 	private FloorRenderer floorRenderer;
 	private WheelRenderer wheelRenderer;
 	private Floor floor;
+	
+	public float posMM=0;
 
 	public WorldRenderer(AirwheelGame airwheelGame, World world) {
 		this.airwheelGame = airwheelGame;
@@ -30,5 +32,9 @@ public class WorldRenderer {
 		wheelRenderer.render();
 		
     }
+	
+	public float getPosManFromWheelRenderer(){
+		return wheelRenderer.getPosMan();
+	}
 
 }

@@ -19,8 +19,7 @@ public class GameScreen extends ScreenAdapter {
 	private World world;
 	private WorldRenderer worldRenderer;
 	private boolean bool = true;
-	//float  posMan = world.getWheelRenderer().getPosMan();
-	float posMan = -10;
+	private float checkPosMan = 0;
 
 	public GameScreen(AirwheelGame airwheelGame) {
 		this.airwheelGame = airwheelGame;
@@ -28,23 +27,24 @@ public class GameScreen extends ScreenAdapter {
         wheel = world.getWheel();
         floor = world.getFloor();
         worldRenderer = new WorldRenderer(airwheelGame, world);
+        //wheelRenderer = new WheelRenderer(batch, floor, world);
         //posMan = wheelRenderer.getPosMan();
     }
 
 	@Override
 	public void render(float delta) {
+		//checkPosMan = wheelRenderer.getPosMan();
+		//System.out.println(checkPosMan);
 		if (bool) {
-		
 			Gdx.gl.glClearColor(0, 0, 0, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			worldRenderer.render(delta);
+			checkPosMan = worldRenderer.getPosManFromWheelRenderer();
 			update(delta);
 		} 
-		if (posMan <= -60) {
+		if (checkPosMan <= -60) {
 			bool=false;
 		}
-		posMan--;
-		
 	}
 	
 	 private void update(float delta) {

@@ -91,13 +91,7 @@ public class WheelRenderer {
 			posMan += 1 ;
 		}
 	}
-	/*
-	public void endGame() {
-		if (posMan <= -75) {
-			
-		}
-	}
-	*/
+
 	public float getPosMan() {
 		return posMan;
 	}
