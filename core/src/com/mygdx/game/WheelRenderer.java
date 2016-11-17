@@ -34,10 +34,11 @@ public class WheelRenderer {
 		batch.begin();
 		drawWheel();
 		drawManAndMotor();
-		whenIsPressedRight();
-		whenIsPressedLeft();
+		//whenIsPressedRight();
+		//whenIsPressedLeft();
 		batch.end();
 	}
+	/*
 	public void whenIsPressedRight() {
 		Vector2 posWheel = world.getWheel().getPosition();
 		//System.out.println("posWheel.x: "+ posWheel.x+ "< "+ 92*(5*numberCheckPartOfFloorPosition-3));
@@ -67,7 +68,7 @@ public class WheelRenderer {
 			}
 		}
 	}
-	
+	*/
 	public void drawManAndMotor() {
 		Vector2 posWheel = world.getWheel().getPosition();
 		Vector2 rolWheel = world.getWheel().getRotation();
