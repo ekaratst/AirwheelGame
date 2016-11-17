@@ -73,10 +73,18 @@ public class WheelRenderer {
 	}
 	
 	public void isPressed() {
-		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-			posMan += 2;
-		} else if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-			posMan -= 2;
+		if (Gdx.input.isKeyPressed(Keys.SPACE)) {
+			if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
+				posMan += 9;
+			} else if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+				posMan -= 9;
+			}
+		} else {
+			if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
+				posMan += 2;
+			} else if (Gdx.input.isKeyPressed(Keys.LEFT)) {
+				posMan -= 2;
+			}
 		}
 	}
 }

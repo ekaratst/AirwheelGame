@@ -62,14 +62,7 @@ public class GameScreen extends ScreenAdapter {
 	        	floor.move(Floor.DIRECTION_DOWN);
 	        }
 	        if (Gdx.input.isKeyPressed(Keys.SPACE)) {
-	        	wheel.move(Wheel.DIRECTION_UP);
-	        	for (int i=0;i<2000000000;i++)
-	        	{
-	        		
-	        	}
-	        	wheel.move(Wheel.DIRECTION_DOWN);
-	        	wheel.roll(Wheel.DIRECTION_RIGHT);//หมุนขวา
-	        	floor.move(Floor.DIRECTION_RIGHT);
+	        	floor.boost();
 	        }
 	        floor.updatefloor();
 		 	wheel.updatefloor();

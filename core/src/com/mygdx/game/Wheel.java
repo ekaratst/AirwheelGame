@@ -39,24 +39,10 @@ public class Wheel {
 	public void move(int dir) { 
         switch (dir) {
         case DIRECTION_UP:
-        	for (int i=0; i<9000000; i++)
-        	{
-        		
-        		if (i%1800000==0) {
-        			System.out.println(i);
-        			position.y += i/1800000f;
-        		}
-        	}
+        	position.y += 1;
         	break;
-        
         case DIRECTION_DOWN:
-        	for (int i=0; i<9000; i++)
-        	{
-        		
-        		if (i%1000==0) {
-        			position.y -= i/3000;
-        		}
-        	}
+        	position.y -= 1;
             break;
         }
     }
@@ -65,22 +51,4 @@ public class Wheel {
 		rotation.x -= 1;
 		position.x += 1;
 	}
-	/*
-	public void moveCheck(int dir) { 
-        switch (dir) {
-        case DIRECTION_UP:
-        	poscheck.y += 1;
-            break;
-        case DIRECTION_DOWN:
-        	poscheck.y -= 1;
-            break;
-        case DIRECTION_RIGHT:
-        	poscheck.x += 1;
-            break;
-        case DIRECTION_LEFT:
-        	poscheck.x -= 1;
-            break;
-        }
-    }
-    */
 }
