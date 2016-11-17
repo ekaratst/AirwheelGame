@@ -22,6 +22,7 @@ public class GameScreen extends ScreenAdapter {
 	private boolean bool = true;
 	private float checkPosMan = 0;
 	private Texture playagainImg;
+	private boolean checkSound = true;
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
@@ -45,8 +46,11 @@ public class GameScreen extends ScreenAdapter {
 		} 
 		if (checkPosMan <= -60 || checkPosMan >= 60) {
 			bool=false;
-			Sound sound2 = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
-			sound2.play(1.0f);
+			if (checkSound) {
+				Sound sound2 = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
+				sound2.play(1.0f);
+				checkSound = false;
+			}
 			batch.begin();
 			batch.draw(playagainImg, 185, 220);
 			batch.end();
