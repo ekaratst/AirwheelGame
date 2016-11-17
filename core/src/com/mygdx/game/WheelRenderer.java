@@ -42,7 +42,6 @@ public class WheelRenderer {
 		normalStateOfMan();
 		isPressed();
 		updateVelocityOfMan();
-		//System.out.println("rolWheel.y: "+ rolWheel.y);
 		batch.draw(motorImg, 64, posWheel.y+2);
 	}
 	
@@ -53,13 +52,11 @@ public class WheelRenderer {
 	}
 	
 	public void updateVelocityOfMan() {
-		//System.out.println("posMan: "+ posMan);
 		if (posMan < 0) {
 			velocityOfMan = -1 * (float) ((Math.sqrt(2*98*Math.abs(posMan))));;
 		} else {
 			velocityOfMan = (float) ((Math.sqrt(2*98*Math.abs(posMan))));
 		}
-		//System.out.println("velocityOfMan: "+ velocityOfMan);
 	}
 	
 	public void normalStateOfMan() {
