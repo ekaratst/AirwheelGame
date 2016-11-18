@@ -59,7 +59,7 @@ public class GameScreen extends ScreenAdapter {
 			batch.end();
 			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
 				bool = true;
-				worldRenderer.wheelRenderer.posMan = -10;
+				worldRenderer.wheelRenderer.posMan = -2;
 				world.resetScore();
 			}
 		}

@@ -19,6 +19,9 @@ public class WorldRenderer {
 	private BitmapFont font;
 	private Texture startImg;
 	private Texture airwheelImg;
+	private Texture keyrightImg;
+	private Texture keyleftImg;
+	private Texture spacebarImg;
 	boolean start = false;
 
 	public WorldRenderer(AirwheelGame airwheelGame, World world) {
@@ -31,6 +34,9 @@ public class WorldRenderer {
 	    font = new BitmapFont();
 	    startImg = new Texture("startall.png"); 
 	    airwheelImg = new Texture("airwheel.png"); 
+	    keyrightImg = new Texture("keyright.png");
+	    keyleftImg = new Texture("keyleft.png");
+	    spacebarImg = new Texture("spacebar.png");
 	}
 	
 	public void render(float delta) {		
@@ -39,6 +45,9 @@ public class WorldRenderer {
 			if (!start) {
 				batch.draw(startImg, 0, 0);
 				batch.draw(airwheelImg, 250, 340);
+				batch.draw(keyrightImg, 320, 110);
+				batch.draw(keyleftImg, 200, 110);
+				batch.draw(spacebarImg, 230, 50);
 			}
 			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
 				start = true;
