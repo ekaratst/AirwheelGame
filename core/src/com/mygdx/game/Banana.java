@@ -10,14 +10,12 @@ public class Banana {
 	Vector3 position;
 	Random random = new Random();
 	
-	public Banana (int count) {
+	public Banana(int count) {
 		position = new Vector3();
 		count += random.nextInt(1000);
 		position.x = (float) count;
 		position.y = (float) 165;
 		position.z = position.x;
-		
-		//System.out.println(position.x);
 		this.count = count;
 	}	
 	
