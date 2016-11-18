@@ -18,7 +18,7 @@ public class Timer {
 	}
 	
 	public void secondMinus() {
-		if (time % 100 == 0 && second != 0) {
+		if (time % 100 == 0 && second != -1) {
 			second -= 1;
 		}
 	}

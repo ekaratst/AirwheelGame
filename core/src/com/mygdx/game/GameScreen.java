@@ -30,6 +30,7 @@ public class GameScreen extends ScreenAdapter {
 	private Timer timer;
 	private BitmapFont font;
 	public int ifResetTime = 0;
+	private Texture onlyFloorImg;
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
@@ -42,6 +43,7 @@ public class GameScreen extends ScreenAdapter {
         batch = airwheelGame.batch;
         worldRenderer = new WorldRenderer(airwheelGame, world, timer);
         playagainImg = new Texture("playagain.png");
+        onlyFloorImg = new Texture("onlyFloor.png");
         font = new BitmapFont();
     }
 
@@ -56,7 +58,7 @@ public class GameScreen extends ScreenAdapter {
 			update(delta);
 			ifResetTime = 0;
 		} 
-		if (checkPosMan <= -60 || checkPosMan >= 60 || timer.getSecond() == 0) {
+		if (checkPosMan <= -60 || checkPosMan >= 60 || timer.getSecond() == -1) {
 			bool=false;
 			if (checkSound) {
 				soundCrash.play(1.0f);
@@ -64,6 +66,7 @@ public class GameScreen extends ScreenAdapter {
 			}
 			batch.begin();
 			batch.draw(playagainImg, 185, 220);
+			batch.draw(onlyFloorImg, 0, 0);
 			batch.end();
 			if (Gdx.input.isKeyPressed(Keys.ENTER)) {
 				bool = true;
@@ -73,7 +76,6 @@ public class GameScreen extends ScreenAdapter {
 			} else {
 				ifResetTime = 0;
 			}
-			System.out.println(ifResetTime);
 		}
 		
 	}
