@@ -26,12 +26,14 @@ public class GameScreen extends ScreenAdapter {
 	private Sound soundBackgroud = Gdx.audio.newSound(Gdx.files.internal("sounds/background.mp3"));
 	private Sound soundCrash = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
 	private Sound soundBoost = Gdx.audio.newSound(Gdx.files.internal("sounds/boost.mp3"));
+	private Timer timer;
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
 		soundBackgroud.loop();
 		this.airwheelGame = airwheelGame;
 		world = new World(airwheelGame);
+		timer = new Timer();
         wheel = world.getWheel();
         floor = world.getFloor();
         batch = airwheelGame.batch;
@@ -41,6 +43,7 @@ public class GameScreen extends ScreenAdapter {
 
 	@Override
 	public void render(float delta) {
+		timer.updateTime();
 		if (bool) {
 			Gdx.gl.glClearColor(0, 0, 0, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -63,6 +66,7 @@ public class GameScreen extends ScreenAdapter {
 				world.resetScore();
 			}
 		}
+		
 	}
 	
 	 private void update(float delta) {
