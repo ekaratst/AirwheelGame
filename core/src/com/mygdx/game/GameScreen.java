@@ -36,8 +36,7 @@ public class GameScreen extends ScreenAdapter {
         floor = world.getFloor();
         batch = airwheelGame.batch;
         worldRenderer = new WorldRenderer(airwheelGame, world);
-        playagainImg = new Texture ("playagain.png");
-        
+        playagainImg = new Texture("playagain.png");
     }
 
 	@Override
@@ -75,14 +74,6 @@ public class GameScreen extends ScreenAdapter {
 	        	wheel.roll(Wheel.DIRECTION_RIGHT);//หมุนขวา
 	        	floor.move(Floor.DIRECTION_RIGHT);
 	        }
-	        if (Gdx.input.isKeyPressed(Keys.UP)) {
-	        	//wheel.move(Wheel.DIRECTION_UP);
-	        	floor.move(Floor.DIRECTION_UP);
-	        }
-	        if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-	        	//wheel.move(Wheel.DIRECTION_DOWN);
-	        	floor.move(Floor.DIRECTION_DOWN);
-	        }
 	        if (Gdx.input.isKeyPressed(Keys.SPACE)) {
 	        	floor.boost();
 	        	soundBoost.play(1.0f);
@@ -92,6 +83,7 @@ public class GameScreen extends ScreenAdapter {
 		 	wheel.updatefloor();
 		 	world.collectBanana();
 	 }
+	 
 	 public void updateBananaPosition() {
 		 for (Banana banana : this.world.bananas) {
 			 banana.position.x = banana.position.z + world.getFloor().getPositionFloor().x;
