@@ -13,9 +13,9 @@ public class WheelRenderer {
 	private Texture motorImg;
 	private Texture manImg;
 	private World world;
-	int numberCheckPartOfFloorPosition = 1;
-	float a = 1;
-	float velocityOfMan = -16;
+	private int numberCheckPartOfFloorPosition = 1;
+	private float a = 1;
+	private float velocityOfMan = -16;
 	public int velocityOfWheel = 1;
 	public float posMan = -10;
 	
@@ -62,8 +62,7 @@ public class WheelRenderer {
 	public void normalStateOfMan() {
 		if (posMan <= 0) {
 			posMan -= 1 ;
-		}
-		else {
+		} else {
 			posMan += 1 ;
 		}
 	}
