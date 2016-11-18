@@ -15,7 +15,7 @@ public class WorldRenderer {
 	private FloorRenderer floorRenderer;
 	public WheelRenderer wheelRenderer;
 	private Floor floor;
-	public float posMM=0;
+	public float posMM = 0;
 	private BitmapFont font;
 	private Texture startImg;
 	private Texture airwheelImg;
@@ -57,5 +57,4 @@ public class WorldRenderer {
 	public float getPosManFromWheelRenderer(){
 		return wheelRenderer.getPosMan();
 	}
-
 }
