@@ -25,7 +25,7 @@ public class WorldRenderer {
 	boolean start = false;
 	private Timer timer;
 
-	public WorldRenderer(AirwheelGame airwheelGame, World world) {
+	public WorldRenderer(AirwheelGame airwheelGame, World world, Timer timer) {
 		this.airwheelGame = airwheelGame;
 		batch = this.airwheelGame.batch;
 	    this.world = world;
@@ -38,7 +38,7 @@ public class WorldRenderer {
 	    keyrightImg = new Texture("keyright.png");
 	    keyleftImg = new Texture("keyleft.png");
 	    spacebarImg = new Texture("spacebar.png");
-	    timer = new Timer();
+	    this.timer = timer;
 	}
 	
 	public void render(float delta) {		

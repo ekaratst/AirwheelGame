@@ -2,12 +2,19 @@ package com.mygdx.game;
 
 public class Timer {
 	private int time = 0;
-	public int second = 30;
+	public int second = 15;
+	GameScreen gameScreen;
+	
+	public Timer(GameScreen gameScreen) {
+		this.gameScreen = gameScreen;
+	}
 	
 	public void updateTime() {
 		time += 1;
 		secondMinus();
-		//System.out.println(second);
+		if (gameScreen.getIfResetTime() == 1) {
+			second = 15;
+		}
 	}
 	
 	public void secondMinus() {
@@ -17,6 +24,11 @@ public class Timer {
 	}
 	
 	public int getSecond() {
+		return second;
+	}
+	
+	public int resetSecond() {
+		second = 15;
 		return second;
 	}
 }

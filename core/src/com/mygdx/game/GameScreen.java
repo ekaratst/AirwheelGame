@@ -27,19 +27,20 @@ public class GameScreen extends ScreenAdapter {
 	private Sound soundBackgroud = Gdx.audio.newSound(Gdx.files.internal("sounds/background.mp3"));
 	private Sound soundCrash = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
 	private Sound soundBoost = Gdx.audio.newSound(Gdx.files.internal("sounds/boost.mp3"));
-//	private Timer timer;
+	private Timer timer;
 	private BitmapFont font;
+	public int ifResetTime = 0;
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
 		soundBackgroud.loop();
 		this.airwheelGame = airwheelGame;
 		world = new World(airwheelGame);
-//		timer = new Timer();
+		timer = new Timer(this);
         wheel = world.getWheel();
         floor = world.getFloor();
         batch = airwheelGame.batch;
-        worldRenderer = new WorldRenderer(airwheelGame, world);
+        worldRenderer = new WorldRenderer(airwheelGame, world, timer);
         playagainImg = new Texture("playagain.png");
         font = new BitmapFont();
     }
@@ -51,14 +52,11 @@ public class GameScreen extends ScreenAdapter {
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			worldRenderer.render(delta);
 			checkPosMan = worldRenderer.getPosManFromWheelRenderer();
-//			timer.updateTime();
-//			//System.out.println(timer.getSecond());
-//			batch.begin();
-//			font.draw(batch, "Time: " + timer.getSecond(), 550, 450);
-//			batch.end();
+			timer.updateTime();
 			update(delta);
+			ifResetTime = 0;
 		} 
-		if (checkPosMan <= -60 || checkPosMan >= 60) {
+		if (checkPosMan <= -60 || checkPosMan >= 60 || timer.getSecond() == 0) {
 			bool=false;
 			if (checkSound) {
 				soundCrash.play(1.0f);
@@ -71,7 +69,11 @@ public class GameScreen extends ScreenAdapter {
 				bool = true;
 				worldRenderer.wheelRenderer.posMan = -2;
 				world.resetScore();
+				ifResetTime = 1;
+			} else {
+				ifResetTime = 0;
 			}
+			System.out.println(ifResetTime);
 		}
 		
 	}
@@ -99,5 +101,9 @@ public class GameScreen extends ScreenAdapter {
 		 for (Banana banana : this.world.bananas) {
 			 banana.position.x = banana.position.z + world.getFloor().getPositionFloor().x;
 		 }
+	 }
+	 
+	 public int getIfResetTime() {
+		 return ifResetTime;
 	 }
 }
