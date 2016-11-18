@@ -35,7 +35,7 @@ public class FloorRenderer {
 		batch.end();
 	 }
 	
-	public void bananaRenderer (Vector2 posFloor) {
+	public void bananaRenderer(Vector2 posFloor) {
 		for (Banana banana : this.bananas) {
 			batch.draw(bananaImg, banana.position.x, 195);
 		}
