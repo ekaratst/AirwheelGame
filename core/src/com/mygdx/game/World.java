@@ -12,9 +12,10 @@ public class World {
 	 private AirwheelGame airwheelGame;
 	 private WheelRenderer wheelRenderer;
 	 List <Banana> bananas = new ArrayList<Banana> ();
-	 int count = 0;
+	 private int count = 0;
 	 private int score;
 	 private int hightscore = 0;
+	 private Sound soundCollect = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
 	 
 	 World(AirwheelGame airwheelGame) {
 	        this.airwheelGame = airwheelGame;
@@ -32,7 +33,6 @@ public class World {
 		 if ((!bananas.isEmpty()) && (bananas.get(0).position.x < 70)) {
 			 bananas.remove(0);
 			 increaseScore();
-			 Sound soundCollect = Gdx.audio.newSound(Gdx.files.internal("sounds/collect.wav"));
 			 soundCollect.play(1.0f);
 		 }
 	 }
