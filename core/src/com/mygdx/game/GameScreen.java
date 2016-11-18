@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
@@ -26,29 +27,35 @@ public class GameScreen extends ScreenAdapter {
 	private Sound soundBackgroud = Gdx.audio.newSound(Gdx.files.internal("sounds/background.mp3"));
 	private Sound soundCrash = Gdx.audio.newSound(Gdx.files.internal("sounds/crash.wav"));
 	private Sound soundBoost = Gdx.audio.newSound(Gdx.files.internal("sounds/boost.mp3"));
-	private Timer timer;
+//	private Timer timer;
+	private BitmapFont font;
 	Banana banana;
 
 	public GameScreen(AirwheelGame airwheelGame) {
 		soundBackgroud.loop();
 		this.airwheelGame = airwheelGame;
 		world = new World(airwheelGame);
-		timer = new Timer();
+//		timer = new Timer();
         wheel = world.getWheel();
         floor = world.getFloor();
         batch = airwheelGame.batch;
         worldRenderer = new WorldRenderer(airwheelGame, world);
         playagainImg = new Texture("playagain.png");
+        font = new BitmapFont();
     }
 
 	@Override
 	public void render(float delta) {
-		timer.updateTime();
 		if (bool) {
 			Gdx.gl.glClearColor(0, 0, 0, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			worldRenderer.render(delta);
 			checkPosMan = worldRenderer.getPosManFromWheelRenderer();
+//			timer.updateTime();
+//			//System.out.println(timer.getSecond());
+//			batch.begin();
+//			font.draw(batch, "Time: " + timer.getSecond(), 550, 450);
+//			batch.end();
 			update(delta);
 		} 
 		if (checkPosMan <= -60 || checkPosMan >= 60) {

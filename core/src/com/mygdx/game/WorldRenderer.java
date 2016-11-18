@@ -23,6 +23,7 @@ public class WorldRenderer {
 	private Texture keyleftImg;
 	private Texture spacebarImg;
 	boolean start = false;
+	private Timer timer;
 
 	public WorldRenderer(AirwheelGame airwheelGame, World world) {
 		this.airwheelGame = airwheelGame;
@@ -37,6 +38,7 @@ public class WorldRenderer {
 	    keyrightImg = new Texture("keyright.png");
 	    keyleftImg = new Texture("keyleft.png");
 	    spacebarImg = new Texture("spacebar.png");
+	    timer = new Timer();
 	}
 	
 	public void render(float delta) {		
@@ -57,6 +59,8 @@ public class WorldRenderer {
 			floorRenderer.render();
 			wheelRenderer.render();
 			batch.begin();
+			timer.updateTime();
+			font.draw(batch, "Time: " + timer.getSecond(), 550, 450);
 			font.draw(batch, "score: " + world.getScore(), 30, 450);
 			font.draw(batch, "hightscore: " + world.getHightScore(), 30, 430);
 			batch.end();
