@@ -43,7 +43,7 @@ public class GameScreen extends ScreenAdapter {
         batch = airwheelGame.batch;
         worldRenderer = new WorldRenderer(airwheelGame, world, timer);
         playagainImg = new Texture("playagain.png");
-        onlyFloorImg = new Texture("onlyFloor.png");
+        onlyFloorImg = new Texture("onlyfloor.png");
         font = new BitmapFont();
     }
 
